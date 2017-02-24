@@ -1,0 +1,128 @@
+@media screen and (max-width:1366px)
+
+{
+
+}
+
+@media screen and (max-width:1200px)
+
+{
+.menupanel ul li a
+{    
+	font-size:14px; 
+	padding:8px 10px;
+}
+
+
+}
+
+@media screen and (max-width:1100px)
+
+{
+
+}
+
+@media screen and (max-width:999px)
+
+{
+
+/*.navbar{width:100%; text-align:center; }*/
+
+.navbar-nav
+{
+	/*float:none !important; display:inline-block; text-align:center;*/
+}
+
+.menupanel{text-align:center; float:none;margin:10px 0 0 0; }
+
+/*.navbar{margin-bottom:5px;}*/
+
+
+@media screen and (max-width:950px)
+
+{
+
+
+}
+
+@media screen and (max-width:900px)
+
+{
+}
+
+@media screen and (max-width:850px)
+
+{
+
+
+
+
+}
+
+@media screen and (max-width:800px)
+
+{
+
+
+}
+
+
+@media screen and (max-width:767px)
+
+{
+.top_panel{text-align:center;}
+
+.topright_panel{text-align:center;}
+
+.top_panel{padding:10px 0;}
+
+.price_box_mid img{margin:0px 0 0 0;}
+
+.footer{text-align:center;}
+
+	
+}
+
+
+
+@media screen and (max-width:700px)
+
+{
+}
+
+@media screen and (max-width:667px)
+
+{
+	
+	
+}
+
+@media screen and (max-width:600px)
+
+{
+	
+}
+
+@media screen and (max-width:550px)
+
+{
+.step_panel_box{width:100%; margin:10px 0;}
+
+.step_panel{width:100%; background-image:url(../images/step_bg2.png); background-size:auto 100%; background-position:center top; padding:40px 0 20px 0; }
+}
+
+
+@media screen and (max-width:480px)
+
+{
+	
+	
+}
+
+
+@media screen and (max-width:400px)
+
+{
+	
+	
+}

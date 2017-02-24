@@ -1,0 +1,98 @@
+.menuContainer{
+    border-bottom:2px solid #000;
+}
+
+// LOGO
+.Logo{
+    display:block;
+}
+
+.Login-Lang{
+    padding-top:30px;
+    padding-bottom:30px;
+}
+// Menu Login
+.Login{
+    margin-top:8px;
+    width:140px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:20px;
+   li{
+    padding:0 10px;
+    &:first-child{
+        border-right:1px solid #ccc;
+    }
+   } 
+}
+
+// Form Language
+.Language{
+    width:242px;
+    margin-left:auto;
+    margin-right:auto;
+    &-select{
+        display:block;
+        float:left;
+        width: 200px;
+        background-color: #FFF;
+        border: 2px solid #000;
+        border-radius: 80px;
+        padding: 5px 15px;
+        text-align: left;
+        font-size: 14px;
+    }
+    &-btn{
+        display:block;
+        float:right;
+        width: 40px;
+        padding: 7px;
+        border-radius: 120px;
+        background-color: #8cc63f;
+        color: #fff;
+        border: none;
+    }
+}
+
+@media (min-width:448px){
+    .Login{
+        float:left;
+    }
+    .Language{
+        float:right;
+    }
+}
+
+@media (min-width:720px){
+    .Logo{
+        float:left;
+    }
+    .Login-Lang{
+        float:right;
+    }
+}
+
+// MENU
+.Menu{
+    
+    .navbar{
+        margin-bottom:0;
+    }
+    .navbar-toggle{
+        background:#8dc73f;
+        .icon-bar{
+            background-color:#fff;
+        }
+    }
+
+    &-nav{
+        a{
+            color:#000;
+            border-bottom:2px solid transparent;
+            &:hover{
+                border-bottom:2px solid #8dc73f;
+            }
+        }
+    }
+
+}

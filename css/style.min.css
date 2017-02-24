@@ -1,0 +1,155 @@
+.menuContainer {
+  border-bottom: 2px solid #000;
+}
+
+.Logo {
+  display: block;
+}
+
+.Login-Lang {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.Login {
+  margin-top: 8px;
+  width: 140px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.Login li {
+  padding: 0 10px;
+}
+
+.Login li:first-child {
+  border-right: 1px solid #ccc;
+}
+
+.Language {
+  width: 242px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Language-select {
+  display: block;
+  float: left;
+  width: 200px;
+  background-color: #FFF;
+  border: 2px solid #000;
+  border-radius: 80px;
+  padding: 5px 15px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.Language-btn {
+  display: block;
+  float: right;
+  width: 40px;
+  padding: 7px;
+  border-radius: 120px;
+  background-color: #8cc63f;
+  color: #fff;
+  border: none;
+}
+
+@media (min-width: 448px) {
+  .Login {
+    float: left;
+  }
+  .Language {
+    float: right;
+  }
+}
+
+@media (min-width: 720px) {
+  .Logo {
+    float: left;
+  }
+  .Login-Lang {
+    float: right;
+  }
+}
+
+.Menu .navbar {
+  margin-bottom: 0;
+}
+
+.Menu .navbar-toggle {
+  background: #8dc73f;
+}
+
+.Menu .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+.Menu-nav a {
+  color: #000;
+  border-bottom: 2px solid transparent;
+}
+
+.Menu-nav a:hover {
+  border-bottom: 2px solid #8dc73f;
+}
+
+.Footer-payments {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: #f4f5f5;
+}
+
+.Footer-payments img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.Footer-nav {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: #8dc73f;
+}
+
+.Footer-nav a {
+  color: #d0d2d3;
+}
+
+.Footer-nav a:hover {
+  color: #fff;
+}
+
+.Footer-nav h4 {
+  color: #fff;
+  margin-top: 0;
+  padding-top: 30px;
+  margin-bottom: 22px;
+}
+
+.Footer-nav li {
+  display: list-item;
+}
+
+.Footer-social a {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  color: #8dc73f;
+  font-size: 28px;
+  line-height: 34px;
+  text-align: center;
+  background: #d0d2d3;
+  margin-right: 2px;
+}
+
+.Footer-copy {
+  color: #fff;
+  padding: 10px;
+  background: #1f2836;
+}
+
+.Footer-copy p {
+  margin: 0;
+}
