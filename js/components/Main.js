@@ -68,23 +68,19 @@ class Main extends React.Component {
                     //states used in second step
                      rateSell: 0.00,
                      rateBuy: 0.00,                     
-                     currency: 'rub',  
-                     hours: '1',
+                     currency: 'usd',  
+                     days: '7',
                      amountCoin: 0.1,
                      amountCash: 0.00,
                      priceData: {},
-                     select_pair: {'rub':'BTC/RUB',
-                                  'usd':'BTC/USD',
+                     select_pair: {'usd':'BTC/USD',
+                                  'gbp':'BTC/GBP',
                                   'eur':'BTC/EUR'},
-                     graph_ranges: {'1':'1 Hour',
-                                  '4':'4 Hours',
-                                  '6':'6 Hours',
-                                  '8':'8 Hours',
-                                  '12':'12 Hours',
-                                  '16':'16 Hours',
-                                  '24':'24 Hours'}, // TODO next line to be fixed, how???
-                    tickerLatestUrl : 'https://staging.nexchange.ru/en/api/v1/price/latest',
-                    //states for third step
+                     graph_ranges: {'7':'7 Days',
+                                  '15':'15 Days',
+                                  '30':'30 Days',
+                                  }, // TODO next line to be fixed, how???
+                     tickerLatestUrl: 'https://api.coindesk.com/v1/bpi/currentprice.json'
                   };
   }
 
@@ -264,13 +260,13 @@ class Main extends React.Component {
         });
       }
 
-      if (tg_name === 'graph-range'){
+      if (tg_name === 'graph-range') {
         this.setState({
-          hours: e.target.value,              
+          days: e.target.value,              
         });
       }
 
-      this.renderChart(this.state.currency, this.state.hours);
+      this.renderChart(this.state.currency, e.target.value);
       this.getPriceData(this.updateState);       
    }
   
@@ -351,12 +347,16 @@ class Main extends React.Component {
   
   }
 
-  updateState(obj){
-    var tmpdata = obj,
-        ratebuy = tmpdata[1]['price_'+this.state.currency+'_formatted'],
-        ratesell = tmpdata[0]['price_'+this.state.currency+'_formatted'],
-        action  = this.state.action === null ? 1 : this.state.action;//buy by dafault
-    
+    updateState(obj) {
+       // console.log('data: ' + obj['USD'].rate)
+       // console.log(this.state.currency)
+        //console.log(this.state.currency.toUpperCase())
+       
+        var tmpdata = obj,
+            currency = this.state.currency.toUpperCase(),
+            ratebuy = tmpdata[currency].rate_float,
+            ratesell = tmpdata[currency].rate_float,
+            action  = this.state.action === null ? 1 : this.state.action;//buy by dafault
     
     // necessary step to can catch data from ##1
     this.setState({
@@ -370,11 +370,14 @@ class Main extends React.Component {
   }
 
   // ##1   Need this to use this kinda ajax calls
-  getPriceData(updateState){      
-      $.get(this.state.tickerLatestUrl, function(dataret) {         
-          updateState(dataret);
-          //console.log(dataret)          
-      });
+ getPriceData(updateState) {      
+
+        fetch(this.state.tickerLatestUrl)
+            .then(results => {
+                return results.json();
+            }).then(data => {
+                updateState(data.bpi);
+            })
   }
     
   updateCardsState(data){
@@ -437,53 +440,73 @@ class Main extends React.Component {
         return data['price_' + currency + '_formatted'];
     }
 
+  formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
   responseToChart(data) {
         var i,
-            resRub = [],
-            resUsd = [],
-            resEur = [];
+            res = []
+      //console.log(data.values);
+      //console.log(typeof data);
+      //console.log(Object.entries(data));
 
-        for (i = 0; i < data.length; i+=2) {
-            var sell = data[i],
-            buy = data[i + 1];
-            if(!!sell && !!buy) {
-                resRub.push([Date.parse(sell.created_on), 
-                              buy.price_rub_formatted, 
-                              sell.price_rub_formatted]);
-                resUsd.push([Date.parse(sell.created_on), 
-                              buy.price_usd_formatted, 
-                              sell.price_usd_formatted]);
-                resEur.push([Date.parse(sell.created_on), 
-                              buy.price_eur_formatted, 
-                              sell.price_eur_formatted]);
-            }
-        }        
-        return {
-            rub: resRub,
-            usd: resUsd,
-            eur: resEur
-        };
+      Object.entries(data).forEach(function (entry) {
+          //console.log(entry);
+          res.push([Date.parse(entry[0]),
+          entry[1],
+          ]);
+      });
+      for (i = 0; i < data.length; i++) {
+            //console.log('data i: '+ data[i]);
+            res.push([Date.parse(data[i][0]), 
+                      data[i][1], 
+                      ]);
+        }       
+      //console.log(res);
+        return res
     }
 
-  renderChart (currency, hours) {
-        var apiRoot = 'https://staging.nexchange.ru/en/api/v1',
+  renderChart (currency, days) {
+      var apiRoot = 'https://api.coindesk.com/v1/bpi/historical/close.json',
           chartDataRaw,
-          tickerHistoryUrl = apiRoot +'/price/history',
+          tickerHistoryUrl = apiRoot + '?currency=' + currency,
           tickerLatestUrl = this.state.tickerLatestUrl,
           actualUrl = tickerHistoryUrl,
           rspChartfunc=this.responseToChart;
 
-        if (hours) {
-            actualUrl = actualUrl + '?hours=' + hours;
-        }        
-         $.get(actualUrl, function(resdata) {
-            chartDataRaw = resdata;            
-            var data = rspChartfunc(resdata)[currency];
-            //console.log("data:",data, "resdata:",resdata,"curr:",currency)
+      if (typeof days === "undefined") {
+          days = this.state.days
+      }
+
+      if (days) {
+          var d = new Date();
+          var n = this.formatDate(d);
+          var low = this.formatDate(d.setDate(d.getDate() - days));
+          actualUrl = actualUrl + '&start=' + low + '&end=' + n;
+      } 
+
+      fetch(actualUrl)
+          .then(results => {
+              return results.json();
+          }).then(resdata => {
+             //$.get(actualUrl, function(resdata) {
+            chartDataRaw = resdata.bpi;            
+              var data = rspChartfunc(resdata.bpi);
+              //var data = chartDataRaw;
+
+            console.log("data:",data, "resdata:",resdata,"curr:",currency)
           $('#container-graph').highcharts({
 
                 chart: {
-                    type: 'arearange',
+                    type: 'line',
                     zoomType: 'x',
                     style: {
                         fontFamily: 'Gotham'
@@ -498,8 +521,8 @@ class Main extends React.Component {
                     events : {
                         load : function () {
                             // set up the updating of the chart each second
-                            var series = this.series[0];
-                            setInterval(function () {
+                            var series = this.series[1];
+                           /* setInterval(function () {
                                 $.get(tickerLatestUrl, function (resdata) {
                                     var lastdata = rspChartfunc(resdata)[currency];
                                     if ( chartDataRaw.length && parseInt(resdata[0].unix_time) >
@@ -511,7 +534,7 @@ class Main extends React.Component {
                                     }
 
                                 });
-                        }, 1000 * 30);
+                        }, 1000 * 30);*/
                       }
                     }
                 },
@@ -522,11 +545,7 @@ class Main extends React.Component {
 
                 xAxis: {
                     type: 'datetime',
-                    dateTimeLabelFormats: {
-                       day: '%e %b',
-                        hour: '%H %M'
-
-                    }
+                    
                 },
                 yAxis: {
                     title: {
@@ -547,9 +566,10 @@ class Main extends React.Component {
                 series: [{
                     name: currency === 'rub' ? 'цена' : 'Price',
                     data: data,
-                    color: '#8cc63f',
+                    color: '#8cc63f'
+                    /*,
                     // TODO: fix this! make dynamic
-                    pointInterval: 3600 * 1000
+                    pointInterval: 3600 * 1000*/
                 }]
             });
         });
@@ -623,7 +643,7 @@ class Main extends React.Component {
                      rateSell={this.state.rateSell}
                      rateBuy= {this.state.rateBuy}                     
                      currency= {this.state.currency}
-                     hours= {this.state.hours}
+                     days= {this.state.days}
                      amountCoin= {this.state.amountCoin}
                      amountCash= {this.state.amountCash}
                      priceData= {this.state.priceData}

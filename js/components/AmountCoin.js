@@ -6,9 +6,6 @@ class AmountCoin  extends React.Component {
       super(props);           
     }
  
- componentDidMount() {      
-    
-    }
    
   render () { 
     //console.log(this.props)    

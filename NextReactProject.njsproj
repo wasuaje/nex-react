@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectGuid>{ae950101-73ca-4b29-a4d1-aad7e4896cc9}</ProjectGuid>
+        <ProjectHome>.</ProjectHome>
+        <ProjectView>ShowAllFiles</ProjectView>
+        <StartupFile>webpack.config.js</StartupFile>
+        <WorkingDirectory>.</WorkingDirectory>
+        <OutputPath>.</OutputPath>
+        <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+    <ItemGroup>
+        <Content Include="index.html" />
+        <Content Include="package.json" />
+        <Content Include="README.md" />
+        <Content Include="gulpfile.js" />
+        <Content Include="karma.conf.js" />
+        <Content Include="tests.webpack.js" />
+        <Content Include="webpack.config.js" />
+        <Content Include="css\forms.css" />
+        <Content Include="css\media_screen.css" />
+        <Content Include="css\overrides.css" />
+        <Content Include="css\overrides_old.css" />
+        <Content Include="css\style.css" />
+        <Content Include="css\style.min.css" />
+        <Content Include="fonts\freefontsdownload.txt" />
+        <Content Include="fonts\montserrat.png" />
+        <Content Include="icons\alfa.png" />
+        <Content Include="icons\alfa_transparent.png" />
+        <Content Include="icons\arrow.png" />
+        <Content Include="icons\br_down.png" />
+        <Content Include="icons\btb24.png" />
+        <Content Include="icons\chart.png" />
+        <Content Include="icons\check_16.png" />
+        <Content Include="icons\close_16.png" />
+        <Content Include="icons\close_32.png" />
+        <Content Include="icons\fb-icon.png" />
+        <Content Include="icons\footer-logo1.png" />
+        <Content Include="icons\footer-logo2.png" />
+        <Content Include="icons\footer-logo3.png" />
+        <Content Include="icons\footer-logo4.png" />
+        <Content Include="icons\footer-logo5.png" />
+        <Content Include="icons\footer-logo6.png" />
+        <Content Include="icons\footer-logoAlfaBank.ru.png" />
+        <Content Include="icons\footer-logoQiwi.ru.png" />
+        <Content Include="icons\footer-logoSberbank.ru.png" />
+        <Content Include="icons\footer-logoSkrill.com.png" />
+        <Content Include="icons\footer-logoVTB24.ru.png" />
+        <Content Include="icons\footer-logoWebMoney.ru.png" />
+        <Content Include="icons\generic_bank.png" />
+        <Content Include="icons\imgpsh_fullsize.png" />
+        <Content Include="icons\logo-footer.png" />
+        <Content Include="icons\logo.png" />
+        <Content Include="icons\masestro.png" />
+        <Content Include="icons\mastercard.png" />
+        <Content Include="icons\pencil_32.png" />
+        <Content Include="icons\qiwi.png" />
+        <Content Include="icons\qiwi_en.png" />
+        <Content Include="icons\robokassa.png" />
+        <Content Include="icons\sber.png" />
+        <Content Include="icons\sberbank.png" />
+        <Content Include="icons\sberbank_transparent.png" />
+        <Content Include="icons\sber_color.png" />
+        <Content Include="icons\skrill.png" />
+        <Content Include="icons\step_circle.png" />
+        <Content Include="icons\step_circle2.png" />
+        <Content Include="icons\step_circle3.png" />
+        <Content Include="icons\tw-icon.png" />
+        <Content Include="icons\visa.png" />
+        <Content Include="icons\visa_mastercard.png" />
+        <Content Include="icons\visa_mastercard2.png" />
+        <Content Include="icons\wm.png" />
+        <Content Include="icons\alfa_square.jpg" />
+        <Content Include="icons\sberbank.jpg" />
+        <Content Include="icons\alfa_bank_transparent_small.svg" />
+        <Content Include="icons\sberbank_square_transparent.svg" />
+        <Content Include="icons_bkp\alfa_transparent.png" />
+        <Content Include="icons_bkp\br_down.png" />
+        <Content Include="icons_bkp\btb24.png" />
+        <Content Include="icons_bkp\check_16.png" />
+        <Content Include="icons_bkp\close_16.png" />
+        <Content Include="icons_bkp\close_32.png" />
+        <Content Include="icons_bkp\generic_bank.png" />
+        <Content Include="icons_bkp\imgpsh_fullsize.png" />
+        <Content Include="icons_bkp\masestro.png" />
+        <Content Include="icons_bkp\mastercard.png" />
+        <Content Include="icons_bkp\pencil_32.png" />
+        <Content Include="icons_bkp\qiwi_en.png" />
+        <Content Include="icons_bkp\sberbank.png" />
+        <Content Include="icons_bkp\sberbank_transparent.png" />
+        <Content Include="icons_bkp\sber_color.png" />
+        <Content Include="icons_bkp\skrill.png" />
+        <Content Include="icons_bkp\visa.png" />
+        <Content Include="icons_bkp\visa_mastercard.png" />
+        <Content Include="icons_bkp\visa_mastercard2.png" />
+        <Content Include="icons_bkp\wm.png" />
+        <Content Include="icons_bkp\alfa_square.jpg" />
+        <Content Include="icons_bkp\sberbank.jpg" />
+        <Content Include="icons_bkp\alfa_bank_transparent_small.svg" />
+        <Content Include="icons_bkp\sberbank_square_transparent.svg" />
+        <Content Include="images\select-arrow.png" />
+        <Content Include="images\small_nav_icon.png" />
+        <Content Include="images\step_bg.png" />
+        <Content Include="js\Root.js" />
+        <Content Include="Screenshots\after buy click.png" />
+        <Content Include="Screenshots\after check method click.png" />
+        <Content Include="Screenshots\main_.png" />
+        <Content Include="js\components\AmountCash.js" />
+        <Content Include="js\components\AmountCoin.js" />
+        <Content Include="js\components\BreadCrumbs.js" />
+        <Content Include="js\components\BuyBtn.js" />
+        <Content Include="js\components\C2cSellMethModal.js" />
+        <Content Include="js\components\Footer.js" />
+        <Content Include="js\components\Footer2.js" />
+        <Content Include="js\components\Footer3.js" />
+        <Content Include="js\components\GRecaptcha.js" />
+        <Content Include="js\components\Login.js" />
+        <Content Include="js\components\Main.js" />
+        <Content Include="js\components\Menu.js" />
+        <Content Include="js\components\MyOrders.js" />
+        <Content Include="js\components\NextBtn.js" />
+        <Content Include="js\components\PaymentModal.js" />
+        <Content Include="js\components\PaymentTypes.js" />
+        <Content Include="js\components\Referrals.js" />
+        <Content Include="js\components\ResetPassword.js" />
+        <Content Include="js\components\RestrictedContainer.js" />
+        <Content Include="js\components\SellBtn.js" />
+        <Content Include="js\components\SellMethModal.js" />
+        <Content Include="js\components\StepAuth.js" />
+        <Content Include="js\components\StepConfirm.js" />
+        <Content Include="js\components\StepGraph.js" />
+        <Content Include="js\components\UserProfile.js" />
+        <Content Include="js\components\UserRegistration.js" />
+        <Content Include="js\dependencies\jquery.card.js" />
+        <Content Include="js\tests\amount-cash.js" />
+        <Content Include="js\tests\amount-coin.js" />
+        <Content Include="js\tests\AmountCash-test.js" />
+        <Content Include="js\tests\AmountCoin-test.js" />
+        <Content Include="js\tests\bread-crumbs.js" />
+        <Content Include="js\tests\BreadCrumbs-test.js" />
+        <Content Include="js\tests\buy-btn.js" />
+        <Content Include="js\tests\BuyBtn-test.js" />
+        <Content Include="js\tests\footer-test.js" />
+        <Content Include="js\tests\footer.js" />
+        <Content Include="js\tests\footer2-test.js" />
+        <Content Include="js\tests\footer2.js" />
+        <Content Include="js\tests\footer3-test.js" />
+        <Content Include="js\tests\footer3.js" />
+        <Content Include="js\tests\menu-test.js" />
+        <Content Include="js\tests\menu.js" />
+        <Content Include="js\tests\next-btn.js" />
+        <Content Include="js\tests\NextBtn-test.js" />
+        <Content Include="js\tests\payment-modal.js" />
+        <Content Include="js\tests\payment-types.js" />
+        <Content Include="js\tests\PaymentModal-test.js" />
+        <Content Include="js\tests\PaymentTypes-test.js" />
+        <Content Include="js\tests\sell-btn.js" />
+        <Content Include="js\tests\SellBtn-test.js" />
+        <Content Include="js\tests\step-auth.js" />
+        <Content Include="js\tests\step-confirm.js" />
+        <Content Include="js\tests\step-graph.js" />
+        <Content Include="js\tests\StepAuth-test.js" />
+        <Content Include="js\tests\StepConfirm-test.js" />
+        <Content Include="js\tests\StepGraph-test.js" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="css" />
+        <Folder Include="fonts" />
+        <Folder Include="icons" />
+        <Folder Include="icons_bkp" />
+        <Folder Include="images" />
+        <Folder Include="js" />
+        <Folder Include="js\components" />
+        <Folder Include="js\dependencies" />
+        <Folder Include="js\tests" />
+        <Folder Include="NextReactProject" />
+        <Folder Include="Screenshots" />
+        <Folder Include="stylesheet" />
+        <Folder Include="stylesheet\components" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
+    <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+    <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+    <ProjectExtensions>
+        <VisualStudio>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+            <WebProjectProperties>
+              <UseIIS>False</UseIIS>
+              <AutoAssignPort>True</AutoAssignPort>
+              <DevelopmentServerPort>0</DevelopmentServerPort>
+              <DevelopmentServerVPath>/</DevelopmentServerVPath>
+              <IISUrl>http://localhost:48022/</IISUrl>
+              <NTLMAuthentication>False</NTLMAuthentication>
+              <UseCustomServer>True</UseCustomServer>
+              <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+              <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+            </WebProjectProperties>
+          </FlavorProperties>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+            <WebProjectProperties>
+              <StartPageUrl>
+              </StartPageUrl>
+              <StartAction>CurrentPage</StartAction>
+              <AspNetDebugging>True</AspNetDebugging>
+              <SilverlightDebugging>False</SilverlightDebugging>
+              <NativeDebugging>False</NativeDebugging>
+              <SQLDebugging>False</SQLDebugging>
+              <ExternalProgram>
+              </ExternalProgram>
+              <StartExternalURL>
+              </StartExternalURL>
+              <StartCmdLineArguments>
+              </StartCmdLineArguments>
+              <StartWorkingDirectory>
+              </StartWorkingDirectory>
+              <EnableENC>False</EnableENC>
+              <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+            </WebProjectProperties>
+          </FlavorProperties>
+        </VisualStudio>
+    </ProjectExtensions>
+</Project>

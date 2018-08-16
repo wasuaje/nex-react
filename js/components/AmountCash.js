@@ -5,16 +5,6 @@ class AmountCash  extends React.Component {
    constructor(props) {
       super(props);           
     }
- 
- componentDidMount() {      
-    }
-  componentWillMount() {            
-    }
-  componentDidUpdate() {      
-     
-    }
-  
-
    
   render () {     
     //console.log(this.props)    
@@ -30,8 +20,8 @@ class AmountCash  extends React.Component {
              <select name="currency_from"
                 className="currency-select currency-from
                            price_box_selectbox_cont_selectbox classic">
-                   <option value="RUB">RUB</option>
-                   <option value="USD">USD</option>
+                   <option value="GBP">USD</option>
+                   <option value="USD">GBP</option>
                    <option value="EUR">EUR</option>
              </select>
       </div>                

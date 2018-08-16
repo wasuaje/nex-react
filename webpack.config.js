@@ -15,17 +15,20 @@ module.exports = {
     headers: {  "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
       "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization" }
-  },
-    module : {
-    loaders : [
-      {
-        test : /\.js$/,        
-        exclude : /node_modules/,
-        loader : 'babel',
-        query:{
-          presets: ['es2015','react']
-        }
-      }
-    ]
-  }
+    },
+    mode: 'development', 
+    resolveLoader: {
+        modules: ['./node_modules']
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                }
+            }
+        ]
+    }
 };
